@@ -7,6 +7,11 @@
 		 <!-- jQuery -->
 	    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	       
+	       <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	    
 		<script type="text/javascript" src="all.js"> </script>
 		<script type="text/javascript" src="jquery.js"></script>
@@ -17,13 +22,14 @@
 			<p>Site de gestion d'évènements collaboratifs</p>
 		</header>
 		
-		<nav>
-			<ul>
-				<li><button onClick="listEvent()">Consulter</button></li>
-				<li><button onClick="loginUser()">Se connecter</button></li>
-				<li><button onClick="createUser()">Créer un compte</button></li>
-				<li><button onClick="createEvenement()">Créer un évènement</button></li>
-			</ul>
+		<nav class="navbar navbar-default">
+			<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="btn btn-primary navbar-btn" onClick="listEvent()">Consulter</button>
+				<button type="button" class="btn btn-primary navbar-btn" onClick="loginUser()">Se connecter</button>
+				<button type="button" class="btn btn-primary navbar-btn" onClick="createUser()">Créer un compte</button>
+				<button type="button" class="btn btn-primary navbar-btn" onClick="createEvenement()">Créer un évènement</button>
+			</div></div>
 		</nav>
 		
 		<div id="principal">
@@ -52,7 +58,7 @@
 			</div>
 		
 			<div id="createEvent" style="display:none;">
-			<p>Entrez les informations concernant l'évènement"</p>
+			<p>Entrez les informations concernant l'évènement</p>
 			<br />
 			<form method="post">
 			<p>

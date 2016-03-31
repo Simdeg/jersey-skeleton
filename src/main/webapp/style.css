@@ -19,25 +19,29 @@ header p
 	text-align : Center;
 }
 /* 	#######  Navigation  ######## */
+	/*
+
 nav 
 {
+	border:1px solid red;
 	width:70%;
 	height:5%;
 	background-color : #D3EDED;
 	margin:1% 15%;
 	border-radius: 3px;
 }
-nav li
-{
-	display :inline;
-	border: 1px solid black;
-	margin:0% 8%;
-	backgrounc-color : #8DC0C0;
-}
+*/
 
-nav li .button 
+/*
+.navbar-btn
 {
-	backgrounc-color : #8DC0C0;
+	border:1px solid black;
+}
+	*/
+.navbar-default
+{
+	display:inline-block;
+	float:none;
 }
 /* 	#######  Corps du site ######## */
 
