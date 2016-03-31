@@ -1,7 +1,3 @@
-function getUser(name) {
-	getUserGeneric(name, "v1/user/");
-}
-
 function getUserBdd(name) {
 	getUserGeneric(name, "v1/userdb/");
 }
@@ -44,10 +40,6 @@ function getByAnnotation() {
      }
  }
 
-function postUser(name, alias) {
-    postUserGeneric(name, alias, "", "v1/user/");
-}
-
 function postUserBdd(name, alias, pwd) {
     postUserGeneric(name, alias, pwd, "v1/userdb/");
 }
@@ -71,10 +63,6 @@ function postUserGeneric(name, alias, pwd, url) {
 			alert('postUser error: ' + textStatus);
 		}
 	});
-}
-
-function listUsers() {
-    listUsersGeneric("v1/user/");
 }
 
 function listUsersBdd() {
@@ -104,22 +92,32 @@ function afficheListUsers(data) {
 
 // Debut listEvent
 function listEventBdd() {
-    listUsersGeneric("v1/evenementsdb");
+	listEventGeneric("v1/evenementsdb");
 }
 
 function listEventGeneric(url) {
 	$.getJSON(url, function(data) {
-		afficheListUsers(data)
+		afficheListEvent(data)
 	});
 }
 
 function afficheListEvent(data) {
-	var html = "<ul>";
+	var html = "<br/>";
 	var index = 0;
-	for (index = 0; index < data.length; ++index) {
-		html = html + "<li>"+ data[index].intitule + "</li>";
+	html += "<table>";
+	html += "<tr>";
+	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td>";
+	for (index = 0; index < data.length; ++index) 
+	{
+		html += "<tr>";
+		html += "<td>" + data[index].intitule +"</td>";
+		html += "<td>" + data[index].type +"</td>";
+		html += "<td>" + data[index].dateDebut +"</td>";
+		html += "<td>" + data[index].dateFin +"</td>";
+		html += "<td>" + data[index].lieu +"</td>";	
+		html += "</tr>";
 	}
-	html = html + "</ul>";
+	html += "</table>";
 	$("#listEvent").html(html);
 }
 //Fin listEvent
