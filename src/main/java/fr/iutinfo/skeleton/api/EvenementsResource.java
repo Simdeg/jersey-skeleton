@@ -23,7 +23,6 @@ public class EvenementsResource {
 			dao.insert(new Evenements("vive la Biere","disco","25/08/2016","26/08/2016","Saint-Tropez", 03, 38, 20));
 			dao.insert(new Evenements("Greve generale","funk","27/04/2016","22/05/2016","Saint bri", 13, 88, 30));
 			dao.insert(new Evenements("la peche aux moules le retour ","soul","25/03/2016","26/03/2016","Saints", 73, 158, 40));
-			dao.insert(new Evenements("la peche aux moules le retour des du retour","dance","25/03/2016","26/03/2016"," DesBesants", 73, 98, 50));
 		} catch (Exception e) {
 			System.out.println("Table déjà là !");
 		}

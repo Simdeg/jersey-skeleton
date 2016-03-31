@@ -58,7 +58,7 @@ function postUserGeneric(nom, prenom, pseudo, email, password, url) {
 			"password" : password
 		}),
 		success : function(data, textStatus, jqXHR) {
-			afficheUser(data);
+			$("#createUser").append("Utilisateur ajouté");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
@@ -87,7 +87,7 @@ function postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMa
 			"nbMin" : nbMin
 		}),
 		success : function(data, textStatus, jqXHR) {
-			//afficheUser(data);
+			$("#createEvent").append("Evénement ajouté");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
@@ -157,6 +157,7 @@ function afficheListEvent(data) {
 
 //Event affichage section
 function listEvent() {
+	listEventBdd();
 	$("#loginUser").hide();
 	$("#createUser").hide();
 	$("#createEvent").hide();
@@ -205,6 +206,7 @@ function sendCreateEvenement() {
 	var nbMax = $("#nombreMin").val();
 	var nbMin = $("#nombreMax").val();
 	postEventBdd(intitule, type, dateDebut, dateFin, lieu, 1, nbMax, nbMin);
+	
 }
 
 function sendCreateUser() {
@@ -213,4 +215,5 @@ function sendCreateUser() {
 	var pseudo = $("#pseudo").val();
 	var email = $("#email").val();
 	var password = $("#password").val();
+	postUserBdd(nom, prenom, pseudo, email, password);
 }

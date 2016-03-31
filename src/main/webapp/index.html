@@ -60,7 +60,6 @@
 			<div id="createEvent" style="display:none;">
 			<p>Entrez les informations concernant l'évènement</p>
 			<br />
-			<form method="post">
 			<p>
 				<label for="intitule">Nom de l'évènement :</label>
 				<input type="text" id="intitule">
@@ -86,15 +85,13 @@
 				<label for="nombreMax">Participants maximum :</label>
 				<input type="number" id="nombreMax">
 			<br />
-				<input type="submit" value="Envoyer">
+				<button onClick="sendCreateEvenement()">Envoyer</button>
 			</p>
-			</form>
 			</div>
 			
 			<div id="createUser" style="display:none;">
 			<p>Rentrez vos informations personnelles</p>
 			<br />
-			<form method="post">
 			<p>
 				<label for="nom">Votre nom :</label>
 				<input type="text" id="nom">
@@ -111,9 +108,8 @@
 				<label for="password">Votre mot de passe :</label>
 				<input type="password" id="password">
 			<br />
-				<input type="submit" value="Envoyer">
+				<button onClick="sendCreateUser()">Envoyer</button>
 			</p>
-			</form>
 			</div>
 			
 		
