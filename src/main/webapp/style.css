@@ -21,16 +21,69 @@ header p
 /* 	#######  Navigation  ######## */
 nav 
 {
-	width:80%;
+	width:70%;
 	height:5%;
-	background-color : #9DD6D6;
-	margin:1% 10%;
+	background-color : #D3EDED;
+	margin:1% 15%;
 	border-radius: 3px;
 }
 nav li
 {
 	display :inline;
-	/*margin:*/
+	border: 1px solid black;
+	margin:0% 8%;
+	backgrounc-color : #8DC0C0;
+}
+
+nav li .button 
+{
+	backgrounc-color : #8DC0C0;
 }
 /* 	#######  Corps du site ######## */
+
+#principal
+{
+	margin:1% 15%;
+}
+
+#loginUser
+{
+	margin:1% 15%;
+}
+
+#loginUser p
+{
+	border:1px solid black;
+	margin:0% 30%;
+	border-radius: 3px;
+	padding: 2%;
+}
+
+#createEvent
+{
+	margin:1% 15%;
+}
+
+#createEvent p
+{
+	border:1px solid black;
+	margin:0% 30%;
+	border-radius: 3px;
+	padding: 2%;
+}
+
+#createUser
+{
+	margin:1% 15%;
+}
+
+#createUser p
+{
+	border:1px solid black;
+	margin:0% 30%;
+	border-radius: 3px;
+	padding: 2%;
+}
+
+
 /* 	#######  footer ######## */
