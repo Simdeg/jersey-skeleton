@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Gest Event</title>
+		
+	</head>
+	<body>
+		<header>
+			<h1>Gest Event</h1>
+			<p>Site de gestion d'évènements collaboratifs</p>
+		</header>
+		<nav>
+			<ul>
+				<li>Consulter</li>
+				<li>Se connecter</li>
+				<li>Créer compte</li>
+				<li>Créer event</li>
+			</ul>
+		</nav>
+		<section id="principal">
+			<p>Liste des événements </p>
+		</section>
+		<footer></footer>
+	</body>
+</html>
