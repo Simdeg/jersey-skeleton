@@ -11,12 +11,12 @@ import java.util.List;
 @Path("/evenement")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class EvenementsDBResource {
+public class EvenementsResource {
 	private static EvenementsDao dao = BDDFactory.getDbi().open(EvenementsDao.class);
-    final static Logger logger = LoggerFactory.getLogger(EvenementsDBResource.class);
+    final static Logger logger = LoggerFactory.getLogger(EvenementsResource.class);
 
 
-    public EvenementsDBResource() {
+    public EvenementsResource() {
 		try {
 			dao.createEvenementsTable();
 			dao.insert(new Evenements("la peche aux moules","rock"));
