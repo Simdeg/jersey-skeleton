@@ -92,7 +92,7 @@ function afficheListUsers(data) {
 
 // Debut listEvent
 function listEventBdd() {
-	listEventGeneric("v1/evenementsdb");
+	listEventGeneric("v1/evenement");
 }
 
 function listEventGeneric(url) {
@@ -121,3 +121,36 @@ function afficheListEvent(data) {
 	$("#listEvent").html(html);
 }
 //Fin listEvent
+
+//Event affichage section
+function listEvent() {
+	document.getElementById(loginUser).toggle();
+	document.getElementById(createUser).toggle();
+	document.getElementById(createEvent).toggle();
+	document.getElementById(listEvent).style.display = block;
+	document.getElementById(principal).style.display = block;
+}
+
+function loginUser() {
+	document.getElementById(loginUser).style.display = block;
+	document.getElementById(createUser).toggle();
+	document.getElementById(createEvent).toggle();
+	document.getElementById(listEvent).toggle();
+	document.getElementById(principal).toggle();
+}
+
+function createUser() {
+	document.getElementById(loginUser).toggle();
+	document.getElementById(createUser).style.display = block;
+	document.getElementById(createEvent).toggle();
+	document.getElementById(listEvent).toggle();
+	document.getElementById(principal).toggle();
+}
+
+function createEvent() {
+	document.getElementById(loginUser).toggle();
+	document.getElementById(createUser).style.display = block;
+	document.getElementById(createEvent).toggle();
+	document.getElementById(listEvent).toggle();
+	document.getElementById(principal).toggle();
+}
