@@ -35,7 +35,14 @@ public class EvenementsResource {
         event.setId(id);
 		return event;
 	}
-
+	
+	@DELETE
+	@Path("/{id}")
+	public void deleteEvenements(@PathParam("id") int id) {
+		dao.deleteById(id);
+		logger.debug("delete " + id);
+	}
+	
 	@GET
 	@Path("/{intitule}")
 	public Evenements getEvenements(@PathParam("intitule") String intitule) {

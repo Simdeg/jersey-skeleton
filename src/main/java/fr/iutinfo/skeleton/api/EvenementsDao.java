@@ -20,6 +20,9 @@ public interface EvenementsDao {
 
 	@SqlUpdate("drop table if exists event")
 	void dropEvenementsTable(); 
+	
+	@SqlUpdate("delete from event where id= :id")
+	void deleteById(@Bind("id") int id);
 
 	@SqlQuery("select * from event order by id")
 	@RegisterMapperFactory(BeanMapperFactory.class)

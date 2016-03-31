@@ -31,4 +31,10 @@ public class EvenementsResourceTest extends JerseyTest{
 		Assert.assertEquals(2, events.size());
 	}
 	
+	@Test
+	public void should_delete_events_when_delete_eventId () {
+		target("/evenement/2").request().delete();
+		List<Evenements> events = target("/evenement").request().get(new GenericType<List<Evenements>>(){});
+		Assert.assertEquals(1, events.size());
+	}
 }
