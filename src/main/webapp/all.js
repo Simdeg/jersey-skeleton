@@ -101,3 +101,25 @@ function afficheListUsers(data) {
 	html = html + "</ul>";
 	$("#reponse").html(html);
 }
+
+// Debut listEvent
+function listEventBdd() {
+    listUsersGeneric("v1/evenementsdb/");
+}
+
+function listEventGeneric(url) {
+	$.getJSON(url, function(data) {
+		afficheListUsers(data)
+	});
+}
+
+function afficheListEvent(data) {
+	var html = '<ul>';
+	var index = 0;
+	for (index = 0; index < data.length; ++index) {
+		html = html + "<li>"+ data[index].intitule + "</li>";
+	}
+	html = html + "</ul>";
+	$("#listEvent").html(html);
+}
+//Fin listEvent
