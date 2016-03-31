@@ -7,10 +7,10 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import java.util.List;
 
 public interface EvenementsDao {
-	@SqlUpdate("create table event (id integer primary key autoincrement, intitule varchar(100), type varchar(100), dateDebut varchar(32), dateFin varchar(32), lieu varchar(32))")
+	@SqlUpdate("create table event (id integer primary key autoincrement, intitule varchar(100), type varchar(100), dateDebut varchar(32), dateFin varchar(32), lieu varchar(32), idUser varchar(4), nbMaxvarchar(32), nbMinvarchar(32))")
 	void createEvenementsTable();
 
-	@SqlUpdate("insert into event (intitule,type,dateDebut, dateFin, lieu) values (:intitule, :type, :dateDebut, :dateFin, :lieu)")
+	@SqlUpdate("insert into event (intitule,type,dateDebut, dateFin, lieu, idUser, nbMax, nbMin) values (:intitule, :type, :dateDebut, :dateFin, :lieu, :idUser, :nbMax, :nbMin)")
 	@GetGeneratedKeys
 	int insert(@BindBean() Evenements event);
 
@@ -22,7 +22,11 @@ public interface EvenementsDao {
 	void dropEvenementsTable(); 
 	
 	@SqlUpdate("delete from event where id= :id")
-	void deleteById(@Bind("id") int id);
+	void deleteById(@Bind("id") int id);	
+	
+	//A modifier
+	@SqlUpdate("update from event where id= :id")
+	void updateById(@Bind("id") int id);
 
 	@SqlQuery("select * from event order by id")
 	@RegisterMapperFactory(BeanMapperFactory.class)
