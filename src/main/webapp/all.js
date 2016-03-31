@@ -104,7 +104,7 @@ function afficheListUsers(data) {
 
 // Debut listEvent
 function listEventBdd() {
-    listUsersGeneric("v1/evenementsdb/");
+    listUsersGeneric("v1/evenementsdb");
 }
 
 function listEventGeneric(url) {
@@ -114,7 +114,7 @@ function listEventGeneric(url) {
 }
 
 function afficheListEvent(data) {
-	var html = '<ul>';
+	var html = "<ul>";
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
 		html = html + "<li>"+ data[index].intitule + "</li>";
