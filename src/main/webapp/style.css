@@ -4,5 +4,33 @@
 	margin : 0px;
 }
 /* 	#######  Header ######## */
+header
+{
+	padding :0px;
+	margin:0px;
+}
+header h1
+{
+	font-size:34px;
+	text-align : Center;
+}
+header p
+{
+	text-align : Center;
+}
+/* 	#######  Navigation  ######## */
+nav 
+{
+	width:80%;
+	height:5%;
+	background-color : #9DD6D6;
+	margin:1% 10%;
+	border-radius: 3px;
+}
+nav li
+{
+	display :inline;
+	/*margin:*/
+}
 /* 	#######  Corps du site ######## */
 /* 	#######  footer ######## */
