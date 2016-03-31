@@ -14,7 +14,7 @@ public class Evenements implements Principal {
     private String dateDebut;
     private String dateFin;
     private String lieu;
-    private String nomOrganisateur;
+    private int idUser;
     private int nbMax;
     private int nbMin;
 
@@ -26,6 +26,16 @@ public class Evenements implements Principal {
     public Evenements(String intitule, String type) {
         this.intitule = intitule;
         this.type = type;
+    }
+    public Evenements(String intitule, String type, String dateDebut, String dateFin, String lieu, String nomOrganisateur, int nbMax, int nbMin, int idUser) {
+        this.intitule = intitule;
+        this.type = type;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.lieu = lieu;
+        this.setIdUser(idUser);
+        this.nbMax = nbMax;
+        this.nbMin = nbMin;
     }
 
     public Evenements() {
@@ -70,15 +80,6 @@ public class Evenements implements Principal {
     	this.dateFin = dateFin;;
     }
 
-
-    public String getNomOrganisateur() {
-        return nomOrganisateur;
-    }
-
-    public void setAlias(String nomOrganisateur) {
-        this.nomOrganisateur= nomOrganisateur;
-    }
-
     public int getNbMax( ){
     	return nbMax;
     }
@@ -106,6 +107,14 @@ public class Evenements implements Principal {
 
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
+	}
+
+	public int getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 
 }
