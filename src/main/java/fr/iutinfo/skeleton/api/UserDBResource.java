@@ -18,11 +18,11 @@ public class UserDBResource {
     public UserDBResource() {
 		try {
 			dao.createUserTable();
-			dao.insert(new User("Margaret","Tatcher"));
-			dao.insert(new User("Bill","Clinton"));
-			dao.insert(new User("John","john"));
-			dao.insert(new User("bill","bill"));
-			dao.insert(new User("mike","mike"));
+			dao.insert(new User("Margaret","Tatcher","MT","Margaret.tah@gmail.com","1000"));
+			dao.insert(new User("Bill","Clinton","BC","Bill.Cli@gmail.com","2000"));
+			dao.insert(new User("John","john","JJ","JOHN.joh@gmail.com","3000"));
+			dao.insert(new User("bill","bill","BB","Bill.bil@gmail.com","4000"));
+			dao.insert(new User("mike","mike","MM","Mike.mik@gmail.com","5000"));
 		} catch (Exception e) {
 			logger.debug("Table déjà là !");
 		}

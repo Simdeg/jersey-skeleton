@@ -21,8 +21,8 @@ public class UserResourceTest extends JerseyTest {
 		UserDao dao = BDDFactory.getDbi().open(UserDao.class);
 		dao.dropUserTable();
 		dao.createUserTable();
-		dao.insert(new User("Margaret", "Tatcher"));
-		dao.insert(new User("Bill", "Clinton"));
+		dao.insert(new User("Margaret","Tatcher","MT","Margaret.tah@gmail.com","1000"));
+		dao.insert(new User("Bill","Clinton","BC","Bill.Cli@gmail.com","2000"));
 	}
 
 	@Test

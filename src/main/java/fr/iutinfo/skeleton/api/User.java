@@ -15,19 +15,24 @@ public class User implements Principal {
     private String email;
     private String password;
 
-   private static User anonymous = new User("Anonymous", "anonym");
+   private static User anonymous = new User("Anonymous", "anonym","","","");
 
     public User(String nom) {
         this.nom = nom;
     }
 
-    public User(String nom, String prenom) {
+    public User(String nom, String prenom,String pseudo,String email,String password) {
         this.nom = nom;
         this.prenom = prenom;
+        this.pseudo = pseudo;
+        this.email = email;
+        this.password = password;
     }
 
     public User() {
     }
+    
+    
 
     public String getEmail() {
         return email;
