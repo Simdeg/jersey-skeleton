@@ -16,48 +16,10 @@
 		</section>
 		
 		<script>
-			function listEvent() {
-				document.getElementById(loginUser).style.display = none;
-				document.getElementById(createUser).style.display = none;
-				document.getElementById(createEvent).style.display = none;
-				document.getElementById(listEvent).style.display = block;				
-			}
-			
-			function loginUser() {
-				document.getElementById(loginUser).style.display = block;
-				document.getElementById(createUser).style.display = none;
-				document.getElementById(createEvent).style.display = none;
-				document.getElementById(listEvent).style.display = none;
-			}
-		
-			function createUser() {
-				document.getElementById(loginUser).style.display = none;
-				document.getElementById(createUser).style.display = block;
-				document.getElementById(createEvent).style.display = none;
-				document.getElementById(listEvent).style.display = none;
-			}
-			
-			function createEvent() {
-				document.getElementById(loginUser).style.display = none;
-				document.getElementById(createUser).style.display = block;
-				document.getElementById(createEvent).style.display = none;
-				document.getElementById(listEvent).style.display = none;
-			}			
+						
 		</script>
 		
-		<section id="loginUser">
-			<form method="post">
-			<p>
-				<label for="pseudo">Votre pseudo :</label>
-				<input type="text" id="pseudo">
-			<br />
-				<label for="password">Votre mot de passe :</label>
-				<input type="password" id="password">
-			<br />
-				<input type="submit" value="Envoyer">
-			</p>
-			</form>
-		</section>
+		
 		
 		<footer></footer>
 	</body>

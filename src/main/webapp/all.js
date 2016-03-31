@@ -1,7 +1,3 @@
-function getUser(name) {
-	getUserGeneric(name, "v1/user/");
-}
-
 function getUserBdd(name) {
 	getUserGeneric(name, "v1/userdb/");
 }
@@ -44,25 +40,22 @@ function getByAnnotation() {
      }
  }
 
-function postUser(name, alias) {
-    postUserGeneric(name, alias, "", "v1/user/");
+function postUserBdd(nom, prenom, pseudo, email, password) {
+    postUserGeneric(nom, prenom, pseudo, email, password, "v1/user/");
 }
 
-function postUserBdd(name, alias, pwd) {
-    postUserGeneric(name, alias, pwd, "v1/userdb/");
-}
-
-function postUserGeneric(name, alias, pwd, url) {
+function postUserGeneric(nom, prenom, pseudo, email, password) {
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
 		url : url,
 		dataType : "json",
 		data : JSON.stringify({
-			"name" : name,
-			"alias" : alias,
-			"password" : pwd,
-			"id" : 0
+			"nom" : nom,
+			"prenom" : prenom,
+			"pseudo" : pseudo,
+			"email" : email,
+			"password" : password
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
@@ -73,12 +66,8 @@ function postUserGeneric(name, alias, pwd, url) {
 	});
 }
 
-function listUsers() {
-    listUsersGeneric("v1/user/");
-}
-
 function listUsersBdd() {
-    listUsersGeneric("v1/userdb/");
+    listUsersGeneric("v1/user/");
 }
 
 function listUsersGeneric(url) {
@@ -104,22 +93,65 @@ function afficheListUsers(data) {
 
 // Debut listEvent
 function listEventBdd() {
-    listUsersGeneric("v1/evenementsdb");
+	listEventGeneric("v1/evenement");
 }
 
 function listEventGeneric(url) {
 	$.getJSON(url, function(data) {
-		afficheListUsers(data)
+		afficheListEvent(data)
 	});
 }
 
 function afficheListEvent(data) {
-	var html = "<ul>";
+	var html = "<br/>";
 	var index = 0;
-	for (index = 0; index < data.length; ++index) {
-		html = html + "<li>"+ data[index].intitule + "</li>";
+	html += "<table>";
+	html += "<tr>";
+	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td>";
+	for (index = 0; index < data.length; ++index) 
+	{
+		html += "<tr>";
+		html += "<td>" + data[index].intitule +"</td>";
+		html += "<td>" + data[index].type +"</td>";
+		html += "<td>" + data[index].dateDebut +"</td>";
+		html += "<td>" + data[index].dateFin +"</td>";
+		html += "<td>" + data[index].lieu +"</td>";	
+		html += "</tr>";
 	}
-	html = html + "</ul>";
+	html += "</table>";
 	$("#listEvent").html(html);
 }
 //Fin listEvent
+
+//Event affichage section
+function listEvent() {
+	document.getElementById("loginUser").style.display = "none";
+	document.getElementById("createUser").style.display = "none";
+	document.getElementById("createEvent").style.display = "none";
+	document.getElementById("listEvent").style.display = "block";
+	document.getElementById("principal").style.display = "block";
+}
+
+function loginUser() {
+	document.getElementById("loginUser").style.display = "block";
+	document.getElementById("createUser").style.display = "none";
+	document.getElementById("createEvent").style.display = "none";
+	document.getElementById("listEvent").style.display = "none";
+	document.getElementById("principal").style.display = "none";
+}
+
+function createUser() {
+	document.getElementById("loginUser").style.display = "none";
+	document.getElementById("createUser").style.display = "block";
+	document.getElementById("createEvent").style.display = "none";
+	document.getElementById("listEvent").style.display = "none";
+	document.getElementById("principal").style.display = "none";
+}
+
+function createEvent() {
+	document.getElementById("loginUser").style.display = "none";
+	document.getElementById("createUser").style.display = "none";
+	document.getElementById("createEvent").style.display = "block";
+	document.getElementById("listEvent").style.display = "none";
+	document.getElementById("principal").style.display = "none";
+}

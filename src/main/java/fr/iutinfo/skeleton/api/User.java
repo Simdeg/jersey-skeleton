@@ -14,8 +14,6 @@ public class User implements Principal {
     private int id = 0;
     private String email;
     private String password;
-    
-
 
    private static User anonymous = new User("Anonymous", "anonym");
 

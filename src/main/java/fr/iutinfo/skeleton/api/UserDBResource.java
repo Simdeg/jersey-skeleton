@@ -7,7 +7,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/userdb")
+@Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserDBResource {
@@ -24,7 +24,7 @@ public class UserDBResource {
 			dao.insert(new User("bill","bill"));
 			dao.insert(new User("mike","mike"));
 		} catch (Exception e) {
-			System.out.println("Table déjà là !");
+			logger.debug("Table déjà là !");
 		}
 	}
 	
