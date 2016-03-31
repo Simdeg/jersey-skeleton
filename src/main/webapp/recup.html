@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>Lecture et parsing d'un fichier JSON</title>
+
+  </head>
+
+  <body>
+
+    <script src="jquery.js"></script>
+
+    <h2>Lecture et parsing du fichier events.json</h2>
+
+    <button id="lecture">Lancer la lecture</button>
+
+    <div id="zone"></div>
+
+    <script>
+
+      $(function() {
+
+        $('#lecture').on('click', function(){
+
+          $.getJSON('events.json',function(data){
+
+            $.each(data,function(index,d){
+              	$('#zone').append('Intitulé : ' + d.intitule + '<br>');
+				$('#zone').append('Type : ' + d.type + '<br>');
+				$('#zone').append('Date de début : ' + d.dateDebut + '<br>');
+				$('#zone').append('Date de Fin : ' + d.dateFin + '<br>');
+				$('#zone').append('Lieu : ' + d.lieu + '<br><br><br>');
+				
+            });
+
+          });
+
+        });
+
+      });
+
+    </script>
+
+  </body>
+
+</html>
+
