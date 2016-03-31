@@ -124,33 +124,33 @@ function afficheListEvent(data) {
 
 //Event affichage section
 function listEvent() {
-	document.getElementById(loginUser).toggle();
-	document.getElementById(createUser).toggle();
-	document.getElementById(createEvent).toggle();
-	document.getElementById(listEvent).style.display = block;
-	document.getElementById(principal).style.display = block;
+	document.getElementById("loginUser").style.display = "none";
+	document.getElementById("createUser").style.display = "none";
+	document.getElementById("createEvent").style.display = "none";
+	document.getElementById("listEvent").style.display = "block";
+	document.getElementById("principal").style.display = "block";
 }
 
 function loginUser() {
-	document.getElementById(loginUser).style.display = block;
-	document.getElementById(createUser).toggle();
-	document.getElementById(createEvent).toggle();
-	document.getElementById(listEvent).toggle();
-	document.getElementById(principal).toggle();
+	document.getElementById("loginUser").style.display = "block";
+	document.getElementById("createUser").style.display = "none";
+	document.getElementById("createEvent").style.display = "none";
+	document.getElementById("listEvent").style.display = "none";
+	document.getElementById("principal").style.display = "none";
 }
 
 function createUser() {
-	document.getElementById(loginUser).toggle();
-	document.getElementById(createUser).style.display = block;
-	document.getElementById(createEvent).toggle();
-	document.getElementById(listEvent).toggle();
-	document.getElementById(principal).toggle();
+	document.getElementById("loginUser").style.display = "none";
+	document.getElementById("createUser").style.display = "block";
+	document.getElementById("createEvent").style.display = "none";
+	document.getElementById("listEvent").style.display = "none";
+	document.getElementById("principal").style.display = "none";
 }
 
 function createEvent() {
-	document.getElementById(loginUser).toggle();
-	document.getElementById(createUser).style.display = block;
-	document.getElementById(createEvent).toggle();
-	document.getElementById(listEvent).toggle();
-	document.getElementById(principal).toggle();
+	document.getElementById("loginUser").style.display = "none";
+	document.getElementById("createUser").style.display = "none";
+	document.getElementById("createEvent").style.display = "block";
+	document.getElementById("listEvent").style.display = "none";
+	document.getElementById("principal").style.display = "none";
 }
