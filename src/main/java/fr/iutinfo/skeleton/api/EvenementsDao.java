@@ -7,7 +7,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import java.util.List;
 
 public interface EvenementsDao {
-	@SqlUpdate("create table event (id integer primary key autoincrement, intitule varchar(100), type varchar(100), dateDebut varchar(32), dateFin varchar(32), lieu varchar(32), idUser varchar(4), nbMaxvarchar(32), nbMinvarchar(32))")
+	@SqlUpdate("create table event (id integer primary key autoincrement, intitule varchar(100), type varchar(100), dateDebut varchar(32), dateFin varchar(32), lieu varchar(32), idUser varchar(4), nbMax varchar(32), nbMin varchar(32))")
 	void createEvenementsTable();
 
 	@SqlUpdate("insert into event (intitule,type,dateDebut, dateFin, lieu, idUser, nbMax, nbMin) values (:intitule, :type, :dateDebut, :dateFin, :lieu, :idUser, :nbMax, :nbMin)")

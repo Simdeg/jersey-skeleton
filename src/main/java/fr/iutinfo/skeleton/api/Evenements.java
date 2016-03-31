@@ -27,13 +27,13 @@ public class Evenements implements Principal {
         this.intitule = intitule;
         this.type = type;
     }
-    public Evenements(String intitule, String type, String dateDebut, String dateFin, String lieu, String nomOrganisateur, int nbMax, int nbMin, int idUser) {
+    public Evenements(String intitule, String type, String dateDebut, String dateFin, String lieu, int nbMax, int nbMin, int idUser) {
         this.intitule = intitule;
         this.type = type;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.lieu = lieu;
-        this.setIdUser(idUser);
+        this.idUser = idUser;
         this.nbMax = nbMax;
         this.nbMin = nbMin;
     }
