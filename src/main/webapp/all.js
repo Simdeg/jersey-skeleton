@@ -44,7 +44,7 @@ function postUserBdd(nom, prenom, pseudo, email, password) {
     postUserGeneric(nom, prenom, pseudo, email, password, "v1/user/");
 }
 
-function postUserGeneric(nom, prenom, pseudo, email, password) {
+function postUserGeneric(nom, prenom, pseudo, email, password, url) {
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -59,6 +59,35 @@ function postUserGeneric(nom, prenom, pseudo, email, password) {
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			alert('postUser error: ' + textStatus);
+		}
+	});
+}
+
+function postEventBdd(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin) {
+	postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, "v1/evenement");
+}
+
+function postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, url) {
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : url,
+		dataType : "json",
+		data : JSON.stringify({
+			"intitule" : intitule,
+			"type" : type,
+			"dateDebut" : dateDebut,
+			"dateFin" : dateFin,
+			"lieu" : lieu,
+			"idUser" : idUser,
+			"nbMax" : nbMax,
+			"nbMin" : nbMin
+		}),
+		success : function(data, textStatus, jqXHR) {
+			//afficheUser(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
@@ -107,7 +136,7 @@ function afficheListEvent(data) {
 	var index = 0;
 	html += "<table>";
 	html += "<tr>";
-	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td>";
+	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td><td> Id user</td><td> nbMax</td><td> nbMax</td>";
 	for (index = 0; index < data.length; ++index) 
 	{
 		html += "<tr>";
@@ -116,6 +145,9 @@ function afficheListEvent(data) {
 		html += "<td>" + data[index].dateDebut +"</td>";
 		html += "<td>" + data[index].dateFin +"</td>";
 		html += "<td>" + data[index].lieu +"</td>";	
+		html += "<td>" + data[index].idUser +"</td>";	
+		html += "<td>" + data[index].nbMax +"</td>";	
+		html += "<td>" + data[index].nbMin +"</td>";	
 		html += "</tr>";
 	}
 	html += "</table>";
@@ -169,9 +201,10 @@ function sendCreateEvenement() {
 	var dateDebut = $("#dateDebut").val();
 	var dateFin = $("#dateFin").val();
 	var lieu = $("#lieu").val();
-	var nomOrganisateur = $("#nomOrganisateur").val();
-	var nombreMin = $("#nombreMin").val();
-	var nombreMax = $("#nombreMax").val();
+	var idUser = $("#nomOrganisateur").val();
+	var nbMax = $("#nombreMin").val();
+	var nbMin = $("#nombreMax").val();
+	postEventBdd(intitule, type, dateDebut, dateFin, lieu, 1, nbMax, nbMin);
 }
 
 function sendCreateUser() {
