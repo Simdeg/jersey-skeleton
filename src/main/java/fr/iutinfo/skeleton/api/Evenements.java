@@ -19,13 +19,11 @@ public class Evenements implements Principal {
     private int nbMin;
 
     
-    public Evenements(int id, String intitule) {
-        this.id = id;
+    public Evenements(String intitule) {
         this.intitule = intitule;
     }
 
-    public Evenements(int id, String intitule, String type) {
-        this.id = id;
+    public Evenements(String intitule, String type) {
         this.intitule = intitule;
         this.type = type;
     }

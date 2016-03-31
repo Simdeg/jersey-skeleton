@@ -8,7 +8,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/evenementsdb")
+@Path("/evenement")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class EvenementsDBResource {
@@ -19,11 +19,11 @@ public class EvenementsDBResource {
     public EvenementsDBResource() {
 		try {
 			dao.createEvenementsTable();
-			dao.insert(new Evenements(0,"la peche aux moules", "rock"));
-			dao.insert(new Evenements(1,"vive la Biere", "disco"));
-			dao.insert(new Evenements(2,"Greve generale", "funk"));
-			dao.insert(new Evenements(3,"la peche aux moules le retour ", "soul"));
-			dao.insert(new Evenements(4,"la peche aux moules le retour des du retour", "dance"));
+			dao.insert(new Evenements("la peche aux moules","rock"));
+			dao.insert(new Evenements("vive la Biere","disco"));
+			dao.insert(new Evenements("Greve generale","funk"));
+			dao.insert(new Evenements("la peche aux moules le retour ","soul"));
+			dao.insert(new Evenements("la peche aux moules le retour des du retour","dance"));
 		} catch (Exception e) {
 			System.out.println("Table déjà là !");
 		}
