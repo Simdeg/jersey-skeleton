@@ -35,6 +35,13 @@ public class UserDBResource {
         user.setId(id);
 		return user;
 	}
+	
+	@DELETE
+	@Path("/{id}")
+	public void deleteUser(@PathParam("id") int id) {
+		dao.deleteById(id);
+		
+	}
 
 	@GET
 	@Path("/{nom}")
