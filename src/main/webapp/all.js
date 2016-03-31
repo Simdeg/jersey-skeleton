@@ -148,7 +148,7 @@ function createUser() {
 	document.getElementById("principal").style.display = "none";
 }
 
-function createEvent() {
+function createEvenement() {
 	document.getElementById("loginUser").style.display = "none";
 	document.getElementById("createUser").style.display = "none";
 	document.getElementById("createEvent").style.display = "block";

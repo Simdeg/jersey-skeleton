@@ -22,7 +22,7 @@
 				<li><button onClick="listEvent()">Consulter</button></li>
 				<li><button onClick="loginUser()">Se connecter</button></li>
 				<li><button onClick="createUser()">Créer un compte</button></li>
-				<li><button onClick="createEvent()">Créer un évènement</button></li>
+				<li><button onClick="createEvenement()">Créer un évènement</button></li>
 			</ul>
 		</nav>
 		
@@ -36,6 +36,8 @@
 		</div>
 			
 			<div id="loginUser" style="display:none;">
+			<p>Vos informations de connection</p>
+			<br />
 			<form method="post">
 			<p>
 				<label for="pseudo">Votre pseudo :</label>
@@ -50,6 +52,8 @@
 			</div>
 		
 			<div id="createEvent" style="display:none;">
+			<p>Entrez les informations concernant l'évènement"</p>
+			<br />
 			<form method="post">
 			<p>
 				<label for="intitule">Nom de l'évènement :</label>
@@ -67,6 +71,9 @@
 				<label for="lieu">Lieu de l'évènement :</label>
 				<input type="text" id="lieu">
 			<br />
+				<label for="nomOrganisateur">Nom de l'organisateur :</label>
+				<input type="text" id="nomOrganisateur">
+			<br />
 				<label for="nombreMin">Participants minimum :</label>
 				<input type="number" id="nombreMin">
 			<br />
@@ -79,6 +86,8 @@
 			</div>
 			
 			<div id="createUser" style="display:none;">
+			<p>Rentrez vos informations personnelles</p>
+			<br />
 			<form method="post">
 			<p>
 				<label for="nom">Votre nom :</label>
