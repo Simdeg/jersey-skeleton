@@ -125,33 +125,59 @@ function afficheListEvent(data) {
 
 //Event affichage section
 function listEvent() {
-	document.getElementById("loginUser").style.display = "none";
-	document.getElementById("createUser").style.display = "none";
-	document.getElementById("createEvent").style.display = "none";
-	document.getElementById("listEvent").style.display = "block";
-	document.getElementById("principal").style.display = "block";
+	$("#loginUser").hide();
+	$("#createUser").hide();
+	$("#createEvent").hide();
+	$("#listEvent").show();
+	$("#principal").show();
 }
 
 function loginUser() {
-	document.getElementById("loginUser").style.display = "block";
-	document.getElementById("createUser").style.display = "none";
-	document.getElementById("createEvent").style.display = "none";
-	document.getElementById("listEvent").style.display = "none";
-	document.getElementById("principal").style.display = "none";
+	$("#loginUser").show();
+	$("#createUser").hide();
+	$("#createEvent").hide();
+	$("#listEvent").hide();
+	$("#principal").hide();
 }
 
 function createUser() {
-	document.getElementById("loginUser").style.display = "none";
-	document.getElementById("createUser").style.display = "block";
-	document.getElementById("createEvent").style.display = "none";
-	document.getElementById("listEvent").style.display = "none";
-	document.getElementById("principal").style.display = "none";
+	$("#loginUser").hide();
+	$("#createUser").show();
+	$("#createEvent").hide();
+	$("#listEvent").hide();
+	$("#principal").hide();
 }
 
 function createEvenement() {
-	document.getElementById("loginUser").style.display = "none";
-	document.getElementById("createUser").style.display = "none";
-	document.getElementById("createEvent").style.display = "block";
-	document.getElementById("listEvent").style.display = "none";
-	document.getElementById("principal").style.display = "none";
+	$("#loginUser").hide();
+	$("#createUser").hide();
+	$("#createEvent").show();
+	$("#listEvent").hide();
+	$("#principal").hide();
+}
+
+//fonctions envoie donnees formulaires
+
+function sendLogin() {
+	var pseudo = $("#pseudo").val();
+	var password = $("#password").val();
+}
+
+function sendCreateEvenement() {
+	var intitule = $("#intitule").val();
+	var type = $("#type").val();
+	var dateDebut = $("#dateDebut").val();
+	var dateFin = $("#dateFin").val();
+	var lieu = $("#lieu").val();
+	var nomOrganisateur = $("#nomOrganisateur").val();
+	var nombreMin = $("#nombreMin").val();
+	var nombreMax = $("#nombreMax").val();
+}
+
+function sendCreateUser() {
+	var nom = $("#nom").val();
+	var prenom = $("#prenom").val();
+	var pseudo = $("#pseudo").val();
+	var email = $("#email").val();
+	var password = $("#password").val();
 }
