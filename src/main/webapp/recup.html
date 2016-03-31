@@ -14,26 +14,26 @@
 
     <script src="jquery.js"></script>
 
-    <h2>Lecture et parsing du fichier events.json</h2>
+    <button id="lectureEvent">Lancer la lecture des events </button>
+    <button id="lectureClient">Lancer la lecture des clients</button>
 
-    <button id="lecture">Lancer la lecture</button>
-
-    <div id="zone"></div>
+    <div id="zoneEvent"></div>
+    <div id="zoneClient"></div>
 
     <script>
 
-      $(function() {
+      $(function listEvent() {
 
-        $('#lecture').on('click', function(){
+        $('#lectureEvent').on('click', function(){
 
           $.getJSON('events.json',function(data){
 
             $.each(data,function(index,d){
-              	$('#zone').append('Intitulé : ' + d.intitule + '<br>');
-				$('#zone').append('Type : ' + d.type + '<br>');
-				$('#zone').append('Date de début : ' + d.dateDebut + '<br>');
-				$('#zone').append('Date de Fin : ' + d.dateFin + '<br>');
-				$('#zone').append('Lieu : ' + d.lieu + '<br><br><br>');
+              	$('#zoneEvent').append('Intitulé : ' + d.intitule + '<br>');
+				$('#zoneEvent').append('Type : ' + d.type + '<br>');
+				$('#zoneEvent').append('Date de début : ' + d.dateDebut + '<br>');
+				$('#zoneEvent').append('Date de Fin : ' + d.dateFin + '<br>');
+				$('#zoneEvent').append('Lieu : ' + d.lieu + '<br><br><br>');
 				
             });
 
@@ -42,6 +42,26 @@
         });
 
       });
+      
+      $(function listClient() {
+
+          $('#lectureClient').on('click', function(){
+
+            $.getJSON('client.json',function(data){
+
+              $.each(data,function(index,d){
+                $('#zoneClient').append('Nom : ' + d.nom + '<br>');
+  				$('#zoneClient').append('Prenom : ' + d.prenom + '<br>');
+  				$('#zoneClient').append('Pseudo : ' + d.pseudo + '<br>');
+  				$('#zoneClient').append('Email : ' + d.email + '<br><br>');
+  				
+              });
+
+            });
+
+          });
+
+        });
 
     </script>
 

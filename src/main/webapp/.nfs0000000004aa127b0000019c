@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Gest Event</title>
+		
+	</head>
+	<body>
+		<header>
+			<h1>Gest Event</h1>
+			<p>Site de gestion d'évènements collaboratifs</p>
+		</header>
+		<section id="principal">
+		<p>Login utilisateur </p>
+		</section>
+		<section>
+			<form method="post">
+			<p>
+				<label for="pseudo">Votre pseudo :</label>
+				<input type="text" id="pseudo">
+			<br />
+				<label for="password">Votre mot de passe :</label>
+				<input type="password" id="password">
+			<br />
+				<input type="submit" value="Envoyer">
+			</p>
+			</form>
+		</section>
+		
+		<footer></footer>
+	</body>
+</html>
