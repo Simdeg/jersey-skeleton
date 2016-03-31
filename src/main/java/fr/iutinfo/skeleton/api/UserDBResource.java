@@ -18,7 +18,11 @@ public class UserDBResource {
     public UserDBResource() {
 		try {
 			dao.createUserTable();
-			dao.insert(new User(0,"Margaret Thatcher", "la Dame de fer"));
+			dao.insert(new User("Margaret","Tatcher"));
+			dao.insert(new User("Bill","Clinton"));
+			dao.insert(new User("John","john"));
+			dao.insert(new User("bill","bill"));
+			dao.insert(new User("mike","mike"));
 		} catch (Exception e) {
 			System.out.println("Table déjà là !");
 		}
@@ -26,16 +30,16 @@ public class UserDBResource {
 	
 	@POST
 	public User createUser(User user) {
-        user.resetPasswordHash();
+        
         int id = dao.insert(user);
         user.setId(id);
 		return user;
 	}
 
 	@GET
-	@Path("/{name}")
-	public User getUser(@PathParam("name") String name) {
-		User user = dao.findByName(name);
+	@Path("/{nom}")
+	public User getUser(@PathParam("nom") String nom) {
+		User user = dao.findByName(nom);
 		if (user == null) {
 			throw new WebApplicationException(404);
 		}

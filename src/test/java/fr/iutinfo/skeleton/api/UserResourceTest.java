@@ -44,7 +44,7 @@ public class UserResourceTest extends JerseyTest {
     @Test
     public void testUpdateUserName() {
         User u = createUserWithName("thomas");
-        u.setName("yann");
+        u.setNom("yann");
         Response rep = target("/user").path("" + u.getId()).request()
                 .put(Entity.entity(u, MediaType.APPLICATION_JSON));
         User updatedUser = rep.readEntity(User.class);
@@ -85,17 +85,17 @@ public class UserResourceTest extends JerseyTest {
     public void read_user_richard_should_return_good_alias() {
         createUserWithAlias("richard stallman", "rms");
         User user = target("/user/richard stallman").request().get(User.class);
-        assertEquals("rms", user.getAlias());
+        assertEquals("rms", user.getPrenom());
     }
 
     private User createUserWithName(String name) {
-        User user = new User(0, name);
+        User user = new User(name);
         Entity<User> userEntity = Entity.entity(user, MediaType.APPLICATION_JSON);
         return target("/user").request().post(userEntity).readEntity(User.class);
     }
 
     private User createUserWithAlias(String name, String alias) {
-        User user = new User(0, name, alias);
+        User user = new User(name, alias);
         Entity<User> userEntity = Entity.entity(user, MediaType.APPLICATION_JSON);
         return target("/user").request().post(userEntity).readEntity(User.class);
     }

@@ -37,9 +37,9 @@ public class UserResource {
         return Response.accepted().status(Status.NOT_FOUND).build();
     }
 
-    protected User find(String name) {
+    protected User find(String nom) {
         for (User user : users.values()) {
-            if (user.getName().equals(name)) {
+            if (user.getNom().equals(nom)) {
                 return user;
             }
         }
@@ -59,14 +59,14 @@ public class UserResource {
         if (user == null) {
             throw new WebApplicationException(404);
         }
-        oldUser.setName(user.getName());
+        oldUser.setNom(user.getNom());
         return Response.status(200).entity(oldUser).build();
     }
 
     @GET
-    @Path("/{name}")
-    public User getUser(@PathParam("name") String name) {
-        User out = find(name);
+    @Path("/{nom}")
+    public User getUser(@PathParam("nom") String nom) {
+        User out = find(nom);
         if (out == null) {
             throw new WebApplicationException(404);
         }

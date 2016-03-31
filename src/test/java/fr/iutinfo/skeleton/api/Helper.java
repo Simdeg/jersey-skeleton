@@ -17,26 +17,26 @@ public class Helper {
     }
 
     User createUserWithName(String name) {
-        User user = new User(0, name);
+        User user = new User(name);
         return createUser(user);
     }
 
     User createUserWithAlias(String name, String alias) {
-        User user = new User(0, name, alias);
+        User user = new User(name, alias);
         return createUser(user);
     }
 
     User createUserWithEmail(String name, String email) {
-        User user = new User(0, name);
+        User user = new User(name);
         user.setEmail(email);
         return createUser(user);
     }
 
     public User createUserWithPassword(String name, String passwd, String salt) {
-        User user = new User(0, name);
-        user.setSalt(salt);
+        User user = new User(name);
+        /*user.setSalt(salt);
         user.setPassword(passwd);
-        logger.debug("createUserWithPassword Hash : " + user.getPasswdHash());
+        logger.debug("createUserWithPassword Hash : " + user.getPasswdHash());*/
         return createUser(user);
     }
 
