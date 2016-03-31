@@ -19,7 +19,8 @@ public class UserViews {
 
     @GET
     @Template
-    public List<User> getAll() {
+    public List<User> getAll() 
+    {
         return dao.all();
     }
 
