@@ -136,7 +136,7 @@ function afficheListEvent(data) {
 	var index = 0;
 	html += "<table class='table table-bordered table-striped'>";
 	html += "<tr>";
-	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td><td> Id utilisateur</td><td>Participants minimum</td><td>Participants maximum</td><td>Editer</td>";
+	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td><td> Id utilisateur</td><td>Participants minimum</td><td>Participants maximum</td><td>Editer</td><td>Participer</td>";
 	for (index = 0; index < data.length; ++index) 
 	{
 		html += "<tr>";
@@ -149,6 +149,7 @@ function afficheListEvent(data) {
 		html += "<td>" + data[index].nbMax +"</td>";	
 		html += "<td>" + data[index].nbMin +"</td>";
 		html += "<td> <button onClick='editEvenement(\""+ data[index].intitule +"\")' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></button></td>";
+		html += "<td> <button onClick='editEvenement(\""+ data[index].intitule +"\")' class='btn btn-success'><span class='glyphicon glyphicon-plus'></span></button></td>";
 		html += "</tr>";
 	}
 	html += "</table>";
