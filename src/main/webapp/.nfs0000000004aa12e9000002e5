@@ -24,11 +24,20 @@
 			<h3>Site de gestion d'évènements collaboratifs</h3>
 		</header>
 		
+	<!-- <nav class="navbar navbar-default">
+			<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="btn btn-primary navbar-btn" onClick="listEvent()">Consulter</button>
+				<button type="button" class="btn btn-primary navbar-btn" onClick="loginUser()">Se connecter</button>
+				<button type="button" class="btn btn-primary navbar-btn" onClick="createUser()">Créer un compte</button>
+				<button type="button" class="btn btn-primary navbar-btn" onClick="createEvenement()">Créer un évènement</button>
+			</div></div>
+		</nav> -->
 		
 	<div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="javascript:listEvent()">Gest Event</a>
+      <a class="navbar-brand" href="#">Gest Event</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="javascript:listEvent()">Consulter</a></li>
@@ -40,11 +49,6 @@
 </div>
 		
 		<div id="principal">
-		<div id="divAlert" class="alert alert-warning alert-dismissible" role="alert">
-			<script>$("#divAlert").hide()</script>
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  <span id="spanDivAlert"> </span>
-			</div>
 			<h4>Liste des événements </h4>
 			<div id="listEvent">
 				<script>
@@ -102,57 +106,46 @@
 			</p>
 			</div>
 			
-			<form class="form-horizontal">
-			<div id="editEvent" style="display:none;" class="form-group">
-			<div class="col-sm-8 col-sm-offset-2 alert alert-info" >
-			Editez les informations concernant l'évènement</div>
+			<div id="editEvent" style="display:none;">
+			<p>Editez les informations concernant l'évènement</p>
 			<br />
-			<div class="row">
-				<label class="control-label col-sm-2 col-sm-offset-2"  for="Eintitule">Nom de l'évènement :</label>
+			<p>
+				<label for="Eintitule">Nom de l'évènement :</label>
 				<input type="text" id="Eintitule" placeholder="Nom de l'évenement">
 			<br />
-				<label class="control-label col-sm-2 col-sm-offset-2" for="Etype">Type de l'évènement :</label>
-				<div class="col-sm-6">
-				<input class="form-control" type="text" id="Etype" placeholder="Type d'évenement">
-				</div>
-			</div>
-			<div class="row">
-				<label class="control-label col-sm-2 col-sm-offset-2" for="EdateDebut">Date de début :</label>
+				<label for="Etype">Type de l'évènement :</label>
+				<input type="text" id="Etype" placeholder="Type d'évenement">
+			<br />
+				<label for="EdateDebut">Date de début :</label>
 				<input type="date" id="EdateDebut" placeholder="Date de début">
-			</div>
-			<div class="row">
-				<label class="control-label col-sm-2 col-sm-offset-2"  for="EdateFin">Date de fin :</label>
+			<br />
+				<label for="EdateFin">Date de fin :</label>
 				<input type="date" id="EdateFin" placeholder="Date de fin">
-			</div>
-			<div class="row">
-				<label class="control-label col-sm-2 col-sm-offset-2"  for="Elieu">Lieu de l'évènement :</label>
+			<br />
+				<label for="Elieu">Lieu de l'évènement :</label>
 				<input type="text" id="Elieu" placeholder="Lieu">
-			</div>
-			<div class="row">
-				<label class="control-label col-sm-2 col-sm-offset-2"  for="EnomOrganisateur">Nom de l'organisateur :</label>
+			<br />
+				<label for="EnomOrganisateur">Nom de l'organisateur :</label>
 				<input type="text" id="EnomOrganisateur" placeholder="Nom de l'organisateur">
-			</div>
-			<div class="row">
-				<label class="control-label col-sm-2 col-sm-offset-2"  for="EnombreMin">Participants minimum :</label>
+			<br />
+				<label for="EnombreMin">Participants minimum :</label>
 				<input type="number" id="EnombreMin" placeholder="Participants minimum">
-			</div>
-			<div class="row">
-				<label class="control-label col-sm-2 col-sm-offset-2"  for="EnombreMax">Participants maximum :</label>
+			<br />
+				<label for="EnombreMax">Participants maximum :</label>
 				<input type="number" id="EnombreMax" placeholder="Participants maximum">
-			</div>
-			<div class="row">
-			<button class="col-sm-2 col-sm-offset-4 btn btn-default" id="boutonEditer" onClick="">Editer</button>
-			<button class="col-sm-2 col-sm-offset-4 btn btn-default" id="boutonSupprimer" onClick="">Supprimer</button>
+			<br />
+			</p>
+			<button id="boutonEditer" onClick="">Editer</button>
+			<button id="boutonSupprimer" onClick="">Supprimer</button>
 			<span id="spanVerif"></span>
 			</div>
-			</form>
 			
 			<form class="form-horizontal">
 			<div id="createUser" style="display:none;" class="form-group">
 			<div class="col-sm-8 col-sm-offset-2 alert alert-info" >Rentrez vos informations personnelles</div>
 			<br />
 			<div class="row">
-				<label class="control-label col-sm-2 col-sm-offset-2" for="nom">Nom :</label>
+				<label class="control-label col-sm-2 col-sm-offset-2" for="nom">Votre nom :</label>
 				<div class="col-sm-6">
 				<input class="form-control" type="text" id="nom" placeholder="Nom">
 				</div>
