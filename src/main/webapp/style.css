@@ -51,7 +51,7 @@ header p
 	margin:1% 15%;
 }
 
-#createEvent p
+#createEvent p, #editEvent
 {
 	border:1px solid black;
 	margin:0% 30%;
