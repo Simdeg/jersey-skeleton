@@ -58,7 +58,7 @@ function postUserGeneric(nom, prenom, pseudo, email, password, url) {
 			"password" : password
 		}),
 		success : function(data, textStatus, jqXHR) {
-			$("#createUser").append("Utilisateur ajouté");
+			$("#spanCreateUser").text("Utilisateur ajouté");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
@@ -88,10 +88,10 @@ function postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMa
 			"participe" : participe
 		}),
 		success : function(data, textStatus, jqXHR) {
-			$("#createEvent").append("Evénement ajouté");
+			$("#spanCreateEvent").text("Evénement ajouté");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-			alert('postUser error: ' + textStatus);
+			alert('postEvent error: ' + textStatus);
 		}
 	});
 }
@@ -180,6 +180,7 @@ function loginUser() {
 }
 
 function editEvenement(id) {
+	$("#spanVerif").text("");
 	$("#loginUser").hide();
 	$("#createUser").hide();
 	$("#createEvent").hide();
@@ -220,8 +221,8 @@ function afficheEvent(data)
 	$("#EnombreMin").val(data.nbMax);
 	$("#EnombreMax").val(data.nbMin);
 	
-	$("#boutonEdit").append("<button onClick='modifEvenement(\""+ data.id +"\")'>Editer</button>");
-	$("#boutonEdit").append("<button onClick='supprEvenement(\""+ data.id +"\")'>Supprimer</button>");
+	$("#boutonEditer").attr("onclick", "modifEvenement(\""+data.id+"\")");
+	$("#boutonSupprimer").attr("onclick", "supprEvenement(\""+data.id+"\")");
 }
 
 function modifEvenement(id)
@@ -235,6 +236,7 @@ function modifEvenement(id)
 	var nbMax = $("#EnombreMin").val();
 	var nbMin = $("#EnombreMax").val();
 	upEventBdd(id, intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin);
+	$("input").val("");
 }
 
 function upEventBdd(id, intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin) {
@@ -259,7 +261,7 @@ function upEventGeneric(id, intitule, type, dateDebut, dateFin, lieu, idUser, nb
 			"nbMin" : nbMin
 		}),
 		success : function(data, textStatus, jqXHR) {
-			$("#editEvent").append("Evénement modifier");
+			$("#spanVerif").text("Evénement modifier");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
@@ -277,15 +279,17 @@ function supprEvenement(id)
 		url : url,
 		dataType : "json",
 		success : function(data, textStatus, jqXHR) {
-			$("#editEvent").append("Evénement supprimer");
+			$("#spanVerif").text("Evénement supprimer");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
 		}
 	});
+	$("input").val("");
 }
 
 function createUser() {
+	$("#spanCreateUser").text("");
 	$("#loginUser").hide();
 	$("#createUser").show();
 	$("#createEvent").hide();
@@ -295,6 +299,7 @@ function createUser() {
 }
 
 function createEvenement() {
+	$("#spanCreateEvent").text("");
 	$("#loginUser").hide();
 	$("#createUser").hide();
 	$("#createEvent").show();
@@ -308,6 +313,7 @@ function createEvenement() {
 function sendLogin() {
 	var pseudo = $("#pseudo").val();
 	var password = $("#password").val();
+	$("input").val("");
 }
 
 function sendCreateEvenement() {
@@ -319,8 +325,9 @@ function sendCreateEvenement() {
 	var idUser = $("#nomOrganisateur").val();
 	var nbMax = $("#nombreMin").val();
 	var nbMin = $("#nombreMax").val();
-	var participe = 1;//////////////////////to  do
+	var participe = 1;
 	postEventBdd(intitule, type, dateDebut, dateFin, lieu, 1, nbMax, nbMin, participe);	
+	$("input").val("");
 }
 
 function sendCreateUser() {
@@ -330,4 +337,5 @@ function sendCreateUser() {
 	var email = $("#email").val();
 	var password = $("#password").val();
 	postUserBdd(nom, prenom, pseudo, email, password);
+	$("input").val("");
 }
