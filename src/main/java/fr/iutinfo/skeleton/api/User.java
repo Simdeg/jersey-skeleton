@@ -105,11 +105,7 @@ public class User implements Principal {
     }
     
     public boolean isGoodPassword(String password) {
-        if (isAnonymous()) {
-            return false;
-        }
-		return true;
-   
+       return password.equals(this.password);
     }
 
 	@Override
