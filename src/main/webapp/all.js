@@ -66,11 +66,11 @@ function postUserGeneric(nom, prenom, pseudo, email, password, url) {
 	});
 }
 
-function postEventBdd(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin) {
-	postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, "v1/evenement");
+function postEventBdd(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, participe) {
+	postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, participe, "v1/evenement");
 }
 
-function postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, url) {
+function postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, participe, url) {
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -84,7 +84,8 @@ function postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMa
 			"lieu" : lieu,
 			"idUser" : idUser,
 			"nbMax" : nbMax,
-			"nbMin" : nbMin
+			"nbMin" : nbMin,
+			"participe" : participe
 		}),
 		success : function(data, textStatus, jqXHR) {
 			$("#createEvent").append("Evénement ajouté");
@@ -201,6 +202,15 @@ function getEventGeneric(url) {
 
 function afficheEvent(data)
 {
+	$("#Eintitule").val("");
+	$("#Etype").val("");
+	$("#EdateDebut").val("");
+	$("#EdateFin").val("");
+	$("#Elieu").val("");
+	$("#EnomOrganisateur").val("");
+	$("#EnombreMin").val("");
+	$("#EnombreMax").val("");
+	
 	$("#Eintitule").val(data.intitule);
 	$("#Etype").val(data.type);
 	$("#EdateDebut").val(data.dateDebut);
@@ -216,28 +226,29 @@ function afficheEvent(data)
 
 function modifEvenement(id)
 {
-	var intitule = $("#intitule").val();
-	var type = $("#type").val();
-	var dateDebut = $("#dateDebut").val();
-	var dateFin = $("#dateFin").val();
-	var lieu = $("#lieu").val();
-	var idUser = $("#nomOrganisateur").val();
-	var nbMax = $("#nombreMin").val();
-	var nbMin = $("#nombreMax").val();
-	upEventBdd(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, id);
+	var intitule = $("#Eintitule").val();
+	var type = $("#Etype").val();
+	var dateDebut = $("#EdateDebut").val();
+	var dateFin = $("#EdateFin").val();
+	var lieu = $("#Elieu").val();
+	var idUser = $("#EnomOrganisateur").val();
+	var nbMax = $("#EnombreMin").val();
+	var nbMin = $("#EnombreMax").val();
+	upEventBdd(id, intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin);
 }
 
-function upEventBdd(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, id) {
-	upEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, "v1/evenement/"+id);
+function upEventBdd(id, intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin) {
+	upEventGeneric(id, intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, "v1/evenement/"+id);
 }
 
-function upEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, url) {
+function upEventGeneric(id, intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, url) {
 	$.ajax({
 		type : 'PUT',
 		contentType : 'application/json',
 		url : url,
 		dataType : "json",
 		data : JSON.stringify({
+			"id" : id,
 			"intitule" : intitule,
 			"type" : type,
 			"dateDebut" : dateDebut,
@@ -258,7 +269,20 @@ function upEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax,
 
 function supprEvenement(id)
 {
+	var url = "v1/evenement/"+id;
 	
+	$.ajax({
+		type : 'DELETE',
+		contentType : 'application/json',
+		url : url,
+		dataType : "json",
+		success : function(data, textStatus, jqXHR) {
+			$("#editEvent").append("Evénement supprimer");
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			alert('postUser error: ' + textStatus);
+		}
+	});
 }
 
 function createUser() {
@@ -295,8 +319,8 @@ function sendCreateEvenement() {
 	var idUser = $("#nomOrganisateur").val();
 	var nbMax = $("#nombreMin").val();
 	var nbMin = $("#nombreMax").val();
-	postEventBdd(intitule, type, dateDebut, dateFin, lieu, 1, nbMax, nbMin);
-	
+	var participe = 1;//////////////////////to  do
+	postEventBdd(intitule, type, dateDebut, dateFin, lieu, 1, nbMax, nbMin, participe);	
 }
 
 function sendCreateUser() {

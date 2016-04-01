@@ -24,9 +24,9 @@ public interface EvenementsDao {
 	@SqlUpdate("delete from event where id= :id")
 	void deleteById(@Bind("id") int id);	
 	
-	@SqlUpdate("update into event where id= :id (intitule,type,dateDebut, dateFin, lieu, idUser, nbMax, nbMin, participe) values (:intitule, :type, :dateDebut, :dateFin, :lieu, :idUser, :nbMax, :nbMin, :participe)")
+	@SqlUpdate("update event (intitule,type,dateDebut, dateFin, lieu, idUser, nbMax, nbMin) values (:intitule, :type, :dateDebut, :dateFin, :lieu, :idUser, :nbMax, :nbMin) where id= :id")
 	@GetGeneratedKeys
-	int updateById(@Bind("id") int id, @BindBean()Evenements event);
+	int updateById(@BindBean()Evenements event);
 	
 	@SqlQuery("select * from event order by id")
 	@RegisterMapperFactory(BeanMapperFactory.class)

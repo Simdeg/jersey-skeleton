@@ -37,8 +37,8 @@ public class EvenementsResource {
 	
 	@PUT
 	@Path("/{id}")
-	public void updateEvenements(@PathParam("id") int id, Evenements event) {
-		dao.updateById(id, event);
+	public void updateEvenements(Evenements event) {
+			dao.updateById(event);
 	}
 	
 	@DELETE
