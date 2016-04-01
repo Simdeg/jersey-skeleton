@@ -59,6 +59,8 @@ function postUserGeneric(nom, prenom, pseudo, email, password, url) {
 		}),
 		success : function(data, textStatus, jqXHR) {
 			$("#spanCreateUser").text("Utilisateur ajouté");
+			$(this).delay(3000);
+			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
@@ -89,6 +91,8 @@ function postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMa
 		}),
 		success : function(data, textStatus, jqXHR) {
 			$("#spanCreateEvent").text("Evénement ajouté");
+			$(this).delay(3000);
+			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postEvent error: ' + textStatus);
@@ -262,7 +266,8 @@ function upEventGeneric(id, intitule, type, dateDebut, dateFin, lieu, idUser, nb
 			"nbMin" : nbMin
 		}),
 		success : function(data, textStatus, jqXHR) {
-			$("#spanVerif").text("Evénement modifier");
+			$("#spanVerif").text("Evènement modifié");
+			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
@@ -281,6 +286,7 @@ function supprEvenement(id)
 		dataType : "json",
 		success : function(data, textStatus, jqXHR) {
 			$("#spanVerif").text("Evénement supprimer");
+			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postUser error: ' + textStatus);
@@ -356,7 +362,7 @@ function upParticipeGeneric(data, url) {
 		dataType : "json",
 		data : JSON.stringify(data),
 		success : function(data, textStatus, jqXHR) {
-			listEventGeneric("v1/evenement");
+			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert('postParticipe error: ' + textStatus);

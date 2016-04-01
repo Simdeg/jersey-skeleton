@@ -14,9 +14,9 @@ public interface UserDao {
 	@GetGeneratedKeys
 	int insert(@BindBean() User user);
 
-	@SqlQuery("select * from users where nom = :nom")
+	@SqlQuery("select * from users where pseudo = :pseudo")
     @RegisterMapperFactory(BeanMapperFactory.class)
-	User findByName(@Bind("nom") String nom);
+	User findByPseudo(@Bind("pseudo") String pseudo);
 
 	@SqlUpdate("drop table if exists users")
 	void dropUserTable();

@@ -44,9 +44,9 @@ public class UserDBResource {
 	}
 
 	@GET
-	@Path("/{nom}")
-	public User getUser(@PathParam("nom") String nom) {
-		User user = dao.findByName(nom);
+	@Path("/{pseudo}")
+	public User getUser(@PathParam("pseudo") String pseudo) {
+		User user = dao.findByPseudo(pseudo);
 		if (user == null) {
 			throw new WebApplicationException(404);
 		}
