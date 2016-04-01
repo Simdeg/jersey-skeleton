@@ -21,10 +21,6 @@ public class Helper {
         return createUser(user);
     }
 
-    User createUserWithAlias(String name, String alias) {
-        User user = new User(name, alias);
-        return createUser(user);
-    }
 
     User createUserWithEmail(String name, String email) {
         User user = new User(name);
@@ -34,9 +30,7 @@ public class Helper {
 
     public User createUserWithPassword(String name, String passwd, String salt) {
         User user = new User(name);
-        /*user.setSalt(salt);
-        user.setPassword(passwd);
-        logger.debug("createUserWithPassword Hash : " + user.getPasswdHash());*/
+ 
         return createUser(user);
     }
 
