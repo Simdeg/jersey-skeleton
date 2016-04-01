@@ -19,10 +19,10 @@ public class EvenementsResource {
     public EvenementsResource() {
 		try {
 			dao.createEvenementsTable();
-			dao.insert(new Evenements("la peche aux moules","rock","25/03/2016","26/03/2016","Saint-Jean DesBesants", 03, 58, 10));
-			dao.insert(new Evenements("vive la Biere","disco","25/08/2016","26/08/2016","Saint-Tropez", 03, 38, 20));
-			dao.insert(new Evenements("Greve generale","funk","27/04/2016","22/05/2016","Saint bri", 13, 88, 30));
-			dao.insert(new Evenements("la peche aux moules le retour ","soul","25/03/2016","26/03/2016","Saints", 73, 158, 40));
+			dao.insert(new Evenements("la peche aux moules","rock","25/03/2016","26/03/2016","Saint-Jean DesBesants", 03, 58, 10,50));
+			dao.insert(new Evenements("vive la Biere","disco","25/08/2016","26/08/2016","Saint-Tropez", 03, 38, 20,25));
+			dao.insert(new Evenements("Greve generale","funk","27/04/2016","22/05/2016","Saint bri", 13, 88, 30,68));
+			dao.insert(new Evenements("la peche aux moules le retour ","soul","25/03/2016","26/03/2016","Saints", 73, 158, 40,85));
 		} catch (Exception e) {
 			System.out.println("Table déjà là !");
 		}

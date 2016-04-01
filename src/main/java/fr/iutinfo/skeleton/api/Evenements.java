@@ -17,6 +17,7 @@ public class Evenements implements Principal {
     private int idUser;
     private int nbMax;
     private int nbMin;
+    private int participe;
 
     
     public Evenements(String intitule) {
@@ -27,7 +28,7 @@ public class Evenements implements Principal {
         this.intitule = intitule;
         this.type = type;
     }
-    public Evenements(String intitule, String type, String dateDebut, String dateFin, String lieu, int nbMax, int nbMin, int idUser) {
+    public Evenements(String intitule, String type, String dateDebut, String dateFin, String lieu, int nbMax, int nbMin,int participe, int idUser) {
         this.intitule = intitule;
         this.type = type;
         this.dateDebut = dateDebut;
@@ -36,6 +37,7 @@ public class Evenements implements Principal {
         this.idUser = idUser;
         this.nbMax = nbMax;
         this.nbMin = nbMin;
+        this.setParticipe(participe);
     }
 
     public Evenements() {
@@ -115,6 +117,14 @@ public class Evenements implements Principal {
 
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
+	}
+
+	public int getParticipe() {
+		return participe;
+	}
+
+	public void setParticipe(int participe) {
+		this.participe = participe;
 	}
 
 }
