@@ -58,7 +58,8 @@ function postUserGeneric(nom, prenom, pseudo, email, password, url) {
 			"password" : password
 		}),
 		success : function(data, textStatus, jqXHR) {
-			$("#spanCreateUser").text("Utilisateur ajouté");
+			$("#spanDivAlert").text("Utilisateur ajouté");
+			$("#divAlert").show();
 			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
@@ -89,8 +90,8 @@ function postEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMa
 			"participe" : participe
 		}),
 		success : function(data, textStatus, jqXHR) {
-			$("#spanCreateEvent").text("Evénement ajouté");
-			$(this).delay(3000);
+			$("#spanDivAlert").text("Evénement ajouté");
+			$("#divAlert").show();
 			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
@@ -265,7 +266,8 @@ function upEventGeneric(id, intitule, type, dateDebut, dateFin, lieu, idUser, nb
 			"nbMin" : nbMin
 		}),
 		success : function(data, textStatus, jqXHR) {
-			$("#spanVerif").text("Evènement modifié");
+			$("#spanDivAlert").text("Evènement modifié");
+			$("#divAlert").show();
 			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
@@ -284,7 +286,8 @@ function supprEvenement(id)
 		url : url,
 		dataType : "json",
 		success : function(data, textStatus, jqXHR) {
-			$("#spanVerif").text("Evénement supprimer");
+			$("#spanDivAlert").text("Evénement supprimer");
+			$("#divAlert").show();
 			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
