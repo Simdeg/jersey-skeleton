@@ -136,7 +136,7 @@ function afficheListEvent(data) {
 	var index = 0;
 	html += "<table class='table table-bordered table-striped'>";
 	html += "<tr>";
-	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td><td> Id user</td><td> nbMax</td><td> nbMax</td><td>Editer</td>";
+	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td><td> Id utilisateur</td><td>Participants minimum</td><td>Participants maximum</td><td>Editer</td>";
 	for (index = 0; index < data.length; ++index) 
 	{
 		html += "<tr>";
@@ -148,12 +148,13 @@ function afficheListEvent(data) {
 		html += "<td>" + data[index].idUser +"</td>";	
 		html += "<td>" + data[index].nbMax +"</td>";	
 		html += "<td>" + data[index].nbMin +"</td>";
-		html += "<td> <button onClick='edit("+ data[index].intitule +")' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></button></td>";
+		html += "<td> <button onClick='editEvenement(\""+ data[index].intitule +"\")' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></button></td>";
 		html += "</tr>";
 	}
 	html += "</table>";
 	$("#listEvent").html(html);
 }
+
 //Fin listEvent
 
 //Event affichage section
@@ -164,6 +165,7 @@ function listEvent() {
 	$("#createEvent").hide();
 	$("#listEvent").show();
 	$("#principal").show();
+	$("#editEvent").hide();
 }
 
 function loginUser() {
@@ -172,6 +174,40 @@ function loginUser() {
 	$("#createEvent").hide();
 	$("#listEvent").hide();
 	$("#principal").hide();
+	$("#editEvent").hide();
+}
+
+function editEvenement(intitule) {
+	$("#loginUser").hide();
+	$("#createUser").hide();
+	$("#createEvent").hide();
+	$("#listEvent").hide();
+	$("#principal").hide();
+	$("#editEvent").show();
+	
+	getEventBdd(intitule);
+}
+
+function getEventBdd(intitule) {
+	getEventGeneric("v1/evenement/"+intitule);
+}
+
+function getEventGeneric(url) {
+	$.getJSON(url, function(data) {
+		afficheEvent(data)
+	});
+}
+
+function afficheEvent(data)
+{
+	$("#Eintitule").val(data.intitule);
+	$("#Etype").val(data.type);
+	$("#EdateDebut").val(data.dateDebut);
+	$("#EdateFin").val(data.dateFin);
+	$("#Elieu").val(data.lieu);
+	$("#EnomOrganisateur").val(data.idUser);
+	$("#EnombreMin").val(data.nbMax);
+	$("#EnombreMax").val(data.nbMin);
 }
 
 function createUser() {
@@ -180,6 +216,7 @@ function createUser() {
 	$("#createEvent").hide();
 	$("#listEvent").hide();
 	$("#principal").hide();
+	$("#editEvent").hide();
 }
 
 function createEvenement() {
@@ -188,6 +225,7 @@ function createEvenement() {
 	$("#createEvent").show();
 	$("#listEvent").hide();
 	$("#principal").hide();
+	$("#editEvent").hide();
 }
 
 //fonctions envoie donnees formulaires
