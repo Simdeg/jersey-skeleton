@@ -28,6 +28,10 @@ public interface EvenementsDao {
 	@GetGeneratedKeys
 	int updateById(@BindBean()Evenements event);
 	
+	@SqlUpdate("update event set participe = :participe where id= :id")
+	@GetGeneratedKeys
+	int updateByIdParticipe(@BindBean()Evenements event);
+	
 	@SqlQuery("select * from event order by id")
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	List<Evenements> all();

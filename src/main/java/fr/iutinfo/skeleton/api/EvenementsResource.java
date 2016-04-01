@@ -41,6 +41,12 @@ public class EvenementsResource {
 			dao.updateById(event);
 	}
 	
+	@PUT
+	@Path("/participe/{id}")
+	public void updateEvenementsParticipe(Evenements event) {
+			dao.updateByIdParticipe(event);
+	}
+	
 	@DELETE
 	@Path("/{id}")
 	public void deleteEvenements(@PathParam("id") int id) {
