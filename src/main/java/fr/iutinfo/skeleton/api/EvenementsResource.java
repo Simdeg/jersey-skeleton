@@ -37,8 +37,8 @@ public class EvenementsResource {
 	
 	@PUT
 	@Path("/{id}")
-	public void updateEvenements(@PathParam("id") int id) {
-		dao.updateById(id);
+	public void updateEvenements(@PathParam("id") int id, Evenements event) {
+		dao.updateById(id, event);
 	}
 	
 	@DELETE
@@ -48,9 +48,19 @@ public class EvenementsResource {
 	}
 	
 	@GET
-	@Path("/{intitule}")
+	@Path("/name/{intitule}")
 	public Evenements getEvenements(@PathParam("intitule") String intitule) {
 		Evenements event = dao.findByName(intitule);
+		if (event == null) {
+			throw new WebApplicationException(404);
+		}
+		return event;
+	}
+	
+	@GET
+	@Path("/id/{id}")
+	public Evenements getEvenements(@PathParam("id") int id) {
+		Evenements event = dao.findById(id);
 		if (event == null) {
 			throw new WebApplicationException(404);
 		}
