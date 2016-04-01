@@ -59,7 +59,6 @@ function postUserGeneric(nom, prenom, pseudo, email, password, url) {
 		}),
 		success : function(data, textStatus, jqXHR) {
 			$("#spanCreateUser").text("Utilisateur ajouté");
-			$(this).delay(3000);
 			listEvent();
 		},
 		error : function(jqXHR, textStatus, errorThrown) {

@@ -24,15 +24,6 @@
 			<h3>Site de gestion d'évènements collaboratifs</h3>
 		</header>
 		
-	<!-- <nav class="navbar navbar-default">
-			<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="btn btn-primary navbar-btn" onClick="listEvent()">Consulter</button>
-				<button type="button" class="btn btn-primary navbar-btn" onClick="loginUser()">Se connecter</button>
-				<button type="button" class="btn btn-primary navbar-btn" onClick="createUser()">Créer un compte</button>
-				<button type="button" class="btn btn-primary navbar-btn" onClick="createEvenement()">Créer un évènement</button>
-			</div></div>
-		</nav> -->
 		
 	<div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
@@ -49,6 +40,11 @@
 </div>
 		
 		<div id="principal">
+		<div id="divAlert" class="alert alert-warning alert-dismissible" role="alert">
+			<script>$("#divAlert").hide()</script>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+			</div>
 			<h4>Liste des événements </h4>
 			<div id="listEvent">
 				<script>
