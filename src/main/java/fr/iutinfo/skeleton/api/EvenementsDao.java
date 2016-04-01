@@ -24,7 +24,7 @@ public interface EvenementsDao {
 	@SqlUpdate("delete from event where id= :id")
 	void deleteById(@Bind("id") int id);	
 	
-	@SqlUpdate("update event (intitule,type,dateDebut, dateFin, lieu, idUser, nbMax, nbMin) values (:intitule, :type, :dateDebut, :dateFin, :lieu, :idUser, :nbMax, :nbMin) where id= :id")
+	@SqlUpdate("update event set intitule = :intitule, type = :type, dateDebut = :dateDebut, dateFin = :dateFin, lieu = :lieu, idUser = :idUser, nbMax = :nbMax, nbMin = :nbMin where id= :id")
 	@GetGeneratedKeys
 	int updateById(@BindBean()Evenements event);
 	
