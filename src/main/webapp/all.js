@@ -134,9 +134,9 @@ function listEventGeneric(url) {
 function afficheListEvent(data) {
 	var html = "<br/>";
 	var index = 0;
-	html += "<table>";
+	html += "<table class='table table-bordered table-striped'>";
 	html += "<tr>";
-	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td><td> Id user</td><td> nbMax</td><td> nbMax</td>";
+	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td><td> Id user</td><td> nbMax</td><td> nbMax</td><td>Editer</td>";
 	for (index = 0; index < data.length; ++index) 
 	{
 		html += "<tr>";
@@ -147,7 +147,8 @@ function afficheListEvent(data) {
 		html += "<td>" + data[index].lieu +"</td>";	
 		html += "<td>" + data[index].idUser +"</td>";	
 		html += "<td>" + data[index].nbMax +"</td>";	
-		html += "<td>" + data[index].nbMin +"</td>";	
+		html += "<td>" + data[index].nbMin +"</td>";
+		html += "<td> <button onClick='edit("+ data[index].intitule +")' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></button></td>";
 		html += "</tr>";
 	}
 	html += "</table>";
