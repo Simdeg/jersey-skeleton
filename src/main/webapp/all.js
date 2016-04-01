@@ -148,8 +148,8 @@ function afficheListEvent(data) {
 		html += "<td>" + data[index].idUser +"</td>";	
 		html += "<td>" + data[index].nbMax +"</td>";	
 		html += "<td>" + data[index].nbMin +"</td>";
-		html += "<td> <button onClick='editEvenement(\""+ data[index].intitule +"\")' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></button></td>";
-		html += "<td> <button onClick='editEvenement(\""+ data[index].intitule +"\")' class='btn btn-success'><span class='glyphicon glyphicon-plus'></span></button></td>";
+		html += "<td> <button onClick='editEvenement(\""+ data[index].id +"\")' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></button></td>";
+		html += "<td> <button onClick='editEvenement(\""+ data[index].id +"\")' class='btn btn-success'><span class='glyphicon glyphicon-plus'></span></button></td>";
 		html += "</tr>";
 	}
 	html += "</table>";
@@ -178,7 +178,7 @@ function loginUser() {
 	$("#editEvent").hide();
 }
 
-function editEvenement(intitule) {
+function editEvenement(id) {
 	$("#loginUser").hide();
 	$("#createUser").hide();
 	$("#createEvent").hide();
@@ -186,11 +186,11 @@ function editEvenement(intitule) {
 	$("#principal").hide();
 	$("#editEvent").show();
 	
-	getEventBdd(intitule);
+	getEventBdd(id);
 }
 
-function getEventBdd(intitule) {
-	getEventGeneric("v1/evenement/"+intitule);
+function getEventBdd(id) {
+	getEventGeneric("v1/evenement/id/"+id);
 }
 
 function getEventGeneric(url) {
@@ -209,6 +209,56 @@ function afficheEvent(data)
 	$("#EnomOrganisateur").val(data.idUser);
 	$("#EnombreMin").val(data.nbMax);
 	$("#EnombreMax").val(data.nbMin);
+	
+	$("#boutonEdit").append("<button onClick='modifEvenement(\""+ data.id +"\")'>Editer</button>");
+	$("#boutonEdit").append("<button onClick='supprEvenement(\""+ data.id +"\")'>Supprimer</button>");
+}
+
+function modifEvenement(id)
+{
+	var intitule = $("#intitule").val();
+	var type = $("#type").val();
+	var dateDebut = $("#dateDebut").val();
+	var dateFin = $("#dateFin").val();
+	var lieu = $("#lieu").val();
+	var idUser = $("#nomOrganisateur").val();
+	var nbMax = $("#nombreMin").val();
+	var nbMin = $("#nombreMax").val();
+	upEventBdd(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, id);
+}
+
+function upEventBdd(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, id) {
+	upEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, "v1/evenement/"+id);
+}
+
+function upEventGeneric(intitule, type, dateDebut, dateFin, lieu, idUser, nbMax, nbMin, url) {
+	$.ajax({
+		type : 'PUT',
+		contentType : 'application/json',
+		url : url,
+		dataType : "json",
+		data : JSON.stringify({
+			"intitule" : intitule,
+			"type" : type,
+			"dateDebut" : dateDebut,
+			"dateFin" : dateFin,
+			"lieu" : lieu,
+			"idUser" : idUser,
+			"nbMax" : nbMax,
+			"nbMin" : nbMin
+		}),
+		success : function(data, textStatus, jqXHR) {
+			$("#editEvent").append("Evénement modifier");
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			alert('postUser error: ' + textStatus);
+		}
+	});
+}
+
+function supprEvenement(id)
+{
+	
 }
 
 function createUser() {
