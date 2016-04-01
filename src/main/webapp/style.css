@@ -9,23 +9,20 @@ header
 	padding :0px;
 	margin:0px;
 }
-header h1
-{
-	font-size:34px;
-	text-align : Center;
-}
-header p
+header h3
 {
 	text-align : Center;
+	text-align : Center;
+	font-weight : bold;
 }
+
 /* 	#######  Navigation  ######## */
 
-.navbar-header
-{
-	display:inline-block;
-	float:none;
-	text-align:center;
+.navbar-default {
+  background-color: #000000;
+  border-color: #e7e7e7;
 }
+
 /* 	#######  Corps du site ######## */
 
 #principal
@@ -70,6 +67,13 @@ header p
 	margin:0% 30%;
 	border-radius: 3px;
 	padding: 2%;
+}
+
+input
+{
+	float : right;
+	border : 1px;
+	
 }
 
 

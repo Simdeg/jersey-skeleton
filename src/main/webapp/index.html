@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="stylesheet" href="style.css" />
 		<title>Gest Event</title>
 		 <!-- jQuery -->
 	    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -15,15 +14,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	 
+    
+    <link rel="stylesheet" href="theme.css" />
+	<link rel="stylesheet" href="style.css" /> 
 	</head>
 	<body>
 		<header>
-			<h1>Gest Event</h1>
-			<p>Site de gestion d'évènements collaboratifs</p>
+			<br/><br/><br/><br/>
+			<h3>Site de gestion d'évènements collaboratifs</h3>
 		</header>
 		
-		<nav class="navbar navbar-default">
+	<!-- <nav class="navbar navbar-default">
 			<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="btn btn-primary navbar-btn" onClick="listEvent()">Consulter</button>
@@ -31,10 +32,24 @@
 				<button type="button" class="btn btn-primary navbar-btn" onClick="createUser()">Créer un compte</button>
 				<button type="button" class="btn btn-primary navbar-btn" onClick="createEvenement()">Créer un évènement</button>
 			</div></div>
-		</nav>
+		</nav> -->
+		
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Gest Event</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="javascript:listEvent()">Consulter</a></li>
+      <li><a href="javascript:loginUser()">Se connecter</a></li>
+      <li><a href="javascript:createUser()">Créer un compte</a></li>
+      <li><a href="javascript:createEvenement()">Créer un évenement</a></li>
+    </ul>
+  </div>
+</div>
 		
 		<div id="principal">
-			<p>Liste des événements </p>
+			<h4>Liste des événements </h4>
 			<div id="listEvent">
 				<script>
 					listEventBdd();
@@ -48,10 +63,10 @@
 			<form method="post">
 			<p>
 				<label for="pseudo">Votre pseudo :</label>
-				<input type="text" id="pseudo">
+				<input type="text" id="pseudo" placeholder="Pseudo">
 			<br />
 				<label for="password">Votre mot de passe :</label>
-				<input type="password" id="password">
+				<input type="password" id="password" placeholder="Mot de passe">
 			<br />
 				<input type="submit" value="Envoyer">
 			</p>
@@ -63,28 +78,28 @@
 			<br />
 			<p>
 				<label for="intitule">Nom de l'évènement :</label>
-				<input type="text" id="intitule">
+				<input type="text" id="intitule" placeholder="Nom de l'évenement">
 			<br />
 				<label for="type">Type de l'évènement :</label>
-				<input type="text" id="type">
-			<br />
+				<input type="text" id="type" placeholder="Tye d'évenement">
+			<br/>
 				<label for="dateDebut">Date de début :</label>
-				<input type="date" id="dateDebut">
+				<input type="date" id="dateDebut" placeholder="Date de début">
 			<br />
 				<label for="dateFin">Date de fin :</label>
-				<input type="date" id="dateFin">
+				<input type="date" id="dateFin" placeholder="Date de fin">
 			<br />
 				<label for="lieu">Lieu de l'évènement :</label>
-				<input type="text" id="lieu">
+				<input type="text" id="lieu" placeholder="Lieu">
 			<br />
 				<label for="nomOrganisateur">Nom de l'organisateur :</label>
-				<input type="text" id="nomOrganisateur">
+				<input type="text" id="nomOrganisateur" placeholder="Nom de l'organisateur">
 			<br />
 				<label for="nombreMin">Participants minimum :</label>
-				<input type="number" id="nombreMin">
+				<input type="number" id="nombreMin" placeholder="Participants minimum">
 			<br />
 				<label for="nombreMax">Participants maximum :</label>
-				<input type="number" id="nombreMax">
+				<input type="number" id="nombreMax" placeholder="Participants maximum">
 			<br />
 				<button onClick="sendCreateEvenement()">Envoyer</button>
 				<span id="spanCreateEvent"></span>
@@ -96,28 +111,28 @@
 			<br />
 			<p>
 				<label for="Eintitule">Nom de l'évènement :</label>
-				<input type="text" id="Eintitule">
+				<input type="text" id="Eintitule" placeholder="Nom de l'évenement">
 			<br />
 				<label for="Etype">Type de l'évènement :</label>
-				<input type="text" id="Etype">
+				<input type="text" id="Etype" placeholder="Type d'évenement">
 			<br />
 				<label for="EdateDebut">Date de début :</label>
-				<input type="date" id="EdateDebut">
+				<input type="date" id="EdateDebut" placeholder="Date de début">
 			<br />
 				<label for="EdateFin">Date de fin :</label>
-				<input type="date" id="EdateFin">
+				<input type="date" id="EdateFin" placeholder="Date de fin">
 			<br />
 				<label for="Elieu">Lieu de l'évènement :</label>
-				<input type="text" id="Elieu">
+				<input type="text" id="Elieu" placeholder="Lieu">
 			<br />
 				<label for="EnomOrganisateur">Nom de l'organisateur :</label>
-				<input type="text" id="EnomOrganisateur">
+				<input type="text" id="EnomOrganisateur" placeholder="Nom de l'organisateur">
 			<br />
 				<label for="EnombreMin">Participants minimum :</label>
-				<input type="number" id="EnombreMin">
+				<input type="number" id="EnombreMin" placeholder="Participants minimum">
 			<br />
 				<label for="EnombreMax">Participants maximum :</label>
-				<input type="number" id="EnombreMax">
+				<input type="number" id="EnombreMax" placeholder="Participants maximum">
 			<br />
 			</p>
 			<button id="boutonEditer" onClick="">Editer</button>
@@ -130,19 +145,19 @@
 			<br />
 			<p>
 				<label for="nom">Votre nom :</label>
-				<input type="text" id="nom">
+				<input type="text" id="nom" placeholder="Nom">
 			<br />
 				<label for="prenom">Votre prénom :</label>
-				<input type="text" id="prenom">
+				<input type="text" id="prenom" placeholder="Prénom">
 			<br />
 				<label for="pseudo">Votre pseudo :</label>
-				<input type="text" id="pseudo">
+				<input type="text" id="pseudo" placeholder="Pseudo">
 			<br />
 				<label for="email">Votre email :</label>
-				<input type="email" id="email">
+				<input type="email" id="email" placeholder="Email">
 			<br />
 				<label for="password">Votre mot de passe :</label>
-				<input type="password" id="password">
+				<input type="password" id="password" placeholder="Mot de passe">
 			<br />
 				<button onClick="sendCreateUser()">Envoyer</button>
 				<span id="spanCreateUser"></span>
