@@ -37,7 +37,7 @@ public class Evenements implements Principal {
         this.idUser = idUser;
         this.nbMax = nbMax;
         this.nbMin = nbMin;
-        this.setParticipe(participe);
+        this.participe = participe;
     }
 
     public Evenements() {

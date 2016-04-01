@@ -137,7 +137,7 @@ function afficheListEvent(data) {
 	var index = 0;
 	html += "<table class='table table-bordered table-striped'>";
 	html += "<tr>";
-	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td><td> Id utilisateur</td><td>Participants minimum</td><td>Participants maximum</td><td>Editer</td><td>Participer</td>";
+	html += "<td>Intitule</td><td> Type</td><td> Date de debut</td><td> Date de fin</td><td> Lieu</td><td> Id utilisateur</td><td>Participants minimum</td><td>Participants maximum</td><td>Participants</td><td>Editer</td><td>Participer</td>";
 	for (index = 0; index < data.length; ++index) 
 	{
 		html += "<tr>";
@@ -149,8 +149,9 @@ function afficheListEvent(data) {
 		html += "<td>" + data[index].idUser +"</td>";	
 		html += "<td>" + data[index].nbMax +"</td>";	
 		html += "<td>" + data[index].nbMin +"</td>";
+		html += "<td>" + data[index].participe +"</td>";
 		html += "<td> <button onClick='editEvenement(\""+ data[index].id +"\")' class='btn btn-primary'><span class='glyphicon glyphicon-edit'></span></button></td>";
-		html += "<td> <button onClick='editEvenement(\""+ data[index].id +"\")' class='btn btn-success'><span class='glyphicon glyphicon-plus'></span></button></td>";
+		html += "<td> <button onClick=' upParticipeBdd("+ JSON.stringify(data[index]) +")' class='btn btn-success'><span class='glyphicon glyphicon-plus'></span></button></td>";
 		html += "</tr>";
 	}
 	html += "</table>";
@@ -338,4 +339,27 @@ function sendCreateUser() {
 	var password = $("#password").val();
 	postUserBdd(nom, prenom, pseudo, email, password);
 	$("input").val("");
+}
+
+//participe
+
+function upParticipeBdd(data) {
+	data.participe += 1;
+	upParticipeGeneric(data, "/v1/evenement/participe/"+data.id);
+}
+
+function upParticipeGeneric(data, url) {
+	$.ajax({
+		type : 'PUT',
+		contentType : 'application/json',
+		url : url,
+		dataType : "json",
+		data : JSON.stringify(data),
+		success : function(data, textStatus, jqXHR) {
+			listEventGeneric("v1/evenement");
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			alert('postParticipe error: ' + textStatus);
+		}
+	});
 }

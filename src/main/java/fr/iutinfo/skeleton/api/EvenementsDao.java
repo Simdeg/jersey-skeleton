@@ -28,7 +28,7 @@ public interface EvenementsDao {
 	@GetGeneratedKeys
 	int updateById(@BindBean()Evenements event);
 	
-	@SqlUpdate("update event set participe = :participe where id= :id")
+	@SqlUpdate("update event set participe = :participe where id = :id")
 	@GetGeneratedKeys
 	int updateByIdParticipe(@BindBean()Evenements event);
 	
